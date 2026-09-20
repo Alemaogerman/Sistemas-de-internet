@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- fonte do título do site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
+    <!-- ícone do site -->
+    <link rel="icon" href="{{ url_for('static', filename='imagens/capivaracafe.ico') }}">
+
+    <title> Consulta Capivara </title>
+</head>
+
+<body>
+  <main class="site">
+
+    <!-- título do site seguido da logo -->
+    <div class="nome-site">
+      <h1> Consulta Capivara </h1>
+
+      <!-- imagem capivara -->
+      <img class="imagem-logo" src="{{ url_for('static', filename='imagens/capivara4.svg') }}" alt="capivara-cafe">
+
+    </div>
+
+    <!-- barra de pesquisa -->
+    <div class="pesquisa">
+      <form id="pesquisar" method="post" style="width:200px; margin:auto">
+        <p id="consulta"><input type="text" name="input" /></p>
+      </form>
+    </div>
+
+    <!-- tabela com os resultados das consultas  -->
+    <div class="tabela-consulta">
+      <table></table>
+    </div>
+
+  </main>
+</body>
+</html>
