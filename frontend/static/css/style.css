@@ -1,0 +1,37 @@
+body{
+  background-color: #F0F9FF; /*#EBF8FF, #F0F9FF e #FCFBE8 - cores anteriores*/
+}
+
+.nome-site{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 110px;
+}
+
+img{
+  width:200px;
+  height:130px;
+  margin-left: 10px;
+}
+
+h1{
+  font-family: "Chewy", sans-serif;
+  font-size: 70px;
+  color:#4F6582; /*#4F6582, #804B13 e #522A00 - cores anteriores*/
+}
+
+#pesquisar {
+    display: flex;
+    justify-content: center;
+}
+
+input{
+  width: 600px;
+  height:35px;
+  border: 2px solid;
+  border-color: #4F6582; /*#804B13 - cores anteriores */
+  border-radius: 15px;
+  font-size: larger;
+}
+
