@@ -18,5 +18,10 @@ def consultarDB(pesquisa):
     else:
         return render_template("search.html", content=f"Consultar {pesquisa}")
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+# para usar o gunicorn:
+# 1) pip install gunicorn
+# 2) gunicorn app:app
+# *só funciona no linux
