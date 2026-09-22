@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- fonte do título do site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
+    <!-- ícones do site -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+    <!-- logo do site -->
+    <link rel="icon" href="{{ url_for('static', filename='imagens/capivaracafe.ico') }}">
+
+    <title> Consulta Capivara </title>
+</head>
+
+<body>
+  <main class="site">
+
+    <!-- título do site seguido da logo -->
+    <div class="nome-site">
+      <h1> Consulta Capivara </h1>
+
+      <!-- imagem capivara -->
+      <img class="imagem-logo" src="{{ url_for('static', filename='imagens/capivara4.svg') }}" alt="capivara-cafe">
+
+    </div>
+
+    <!-- barra de pesquisa -->
+    <form id="pesquisar" method="post">
+      <div id="barra-pesquisar">
+        <span class="material-symbols-outlined">search</span>
+        <p id="consulta"><input type="text" name="input" placeholder="Digite sua consulta:"/></p>
+      </div>
+    </form>
+
+    <!-- ícone de modo dark -->
+    <div id="modo-dark">
+      <span class="material-symbols-outlined"><strong>dark_mode</strong></span>
+    </div>
+
+    <!-- tabela com os resultados das consultas  -->
+    <div class="tabela-consulta">
+      <table></table>
+    </div>
+
+    <!-- paginação -->
+    <div id="paginas-site">
+      <footer><strong>1</strong></footer>
+    </div>
+
+  </main>
+
+</body>
+</html>
