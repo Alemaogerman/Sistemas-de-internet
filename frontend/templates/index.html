@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- fonte do título do site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
+    <!-- ícones do site -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+    <!-- ícone do site -->
+    <link rel="icon" href="{{ url_for('static', filename='imagens/capivaracomputador.ico') }}">
+
+    <title> Consulta Capivara </title>
+</head>
+
+<body>
+  <main class="site">
+
+    <!-- ícone de modo dark -->
+    <div id="modo-dark">
+      <span class="material-symbols-outlined"><strong>dark_mode</strong></span>
+    </div>
+
+    <!-- título do site seguido da logo -->
+    <div class="nome-site">
+      <h1> Consulta Capivara </h1>
+
+      <!-- imagem capivara -->
+      <img class="imagem-logo" src="{{ url_for('static', filename='imagens/capivara2.svg') }}" alt="capivara-pc">
+
+    </div>
+
+    <!-- barra de pesquisa -->
+    <form id="pesquisar" method="post">
+      <div id="barra-pesquisar">
+        <span class="material-symbols-outlined">search</span>
+        <p id="consulta"><input type="text" name="input" placeholder="Digite sua consulta:"/></p>
+      </div>
+    </form>
+
+    <!-- tabela com os resultados das consultas  -->
+     <!-- tabelas bem genéricas por enquanto -->
+     
+    <!--<div class="tabela-consulta">
+      <table id="tabela-aposentados">
+
+        <tr>
+          <th><strong>Nome</strong></th>
+          <th><strong>CPF</strong></th>
+          <th><strong>Matrícula do servidor</strong></th>
+          <th><strong>Nome do órgão</strong></th>
+          <th><strong>Sigla do Órgão</strong></th>
+          <th><strong>Código do órgão superior</strong></th>
+          <th><strong>Cargo</strong></th>
+          <th><strong>Classe</strong></th>
+          <th><strong>Padrão</strong></th>
+          <th><strong>Referência</strong></th>
+          <th><strong>Nível</strong></th>
+          <th><strong>Tipo de aposentadoria</strong></th>
+          <th><strong>Fundamentação da inatividade</strong></th>
+          <th><strong>Nome do diploma legal</strong></th>
+          <th><strong>Data da publicação do diploma legal</strong></th>
+          <th><strong>Ocorrência de ingresso no serviço público</strong></th>
+          <th><strong>Data de ingresso no serviço público</strong></th>
+          <th><strong>Valor do rendimento líquido</strong></th>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+
+      <table id="tabela-carreira">
+        <tr>
+          <th><strong>Nome</strong></th>
+          <th><strong>CPF</strong></th>
+          <th><strong>Código da carreira</strong></th>
+          <th><strong>Descrição do cargo/emprego</strong></th>
+          <th><strong>UF/upag vinculada</strong></th>
+          <th><strong>Denominação do órgão de atuação</strong></th>
+          <th><strong>Mês de referência</strong></th>
+          <th><strong>Valor da remuneração</strong></th>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>-->
+
+  </main>
+
+  <div id="paginas-site">
+      <footer><strong>1</strong></footer>
+    </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
