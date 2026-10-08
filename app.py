@@ -32,7 +32,7 @@ def consulta():
                      "cargo": "descricao_cargo_emprego",
                      "uf": "uf_upag_vinculacao",
                      "orgao": "denominacao_orgao_atuacao"
-                     }
+                    }
 
     argsAposentados = {
                        "nome": "nome",
@@ -44,49 +44,75 @@ def consulta():
 
     cur = conn.cursor()
 
-    parametros = []
-    condicoes = []
+    parametrosCarreira = []
+    parametrosAposentados = []
+    condicoesCarreira = []
+    condicoesAposentados = []
     limite = None
 
     for arg, value in args.items():
         if arg in argsPermitidos:
             if arg == "limit":
                 limite = value
+
             elif arg == "similar":
-                condicoes.append(f'{argsCarreiras[arg]} ILIKE %s')
-                parametros.append(value)
+                condicoesCarreira.append(f"{argsCarreiras['nome']} LIKE %s") ################
+                condicoesAposentados.append(f"{argsAposentados['nome']} LIKE %s") ################
+
+                parametrosCarreira.append(value.upper())
+                parametrosAposentados.append(value.upper())
+
+            elif arg == "uf":
+                condicoesCarreira.append(f'{argsCarreiras[arg]} = %s')
+                parametrosCarreira.append(value.upper())
+
             else:
-                condicoes.append(f'{argsCarreiras[arg]} = %s')
-                parametros.append(value)
+                condicoesCarreira.append(f'{argsCarreiras[arg]} = %s')
+                condicoesAposentados.append(f'{argsAposentados[arg]} = %s')
+                parametrosCarreira.append(value.upper())
+                parametrosAposentados.append(value.upper())
 
-    comando = "SELECT * FROM carreira" # aposentados / carreira
+    comandoCarreira = "SELECT * FROM carreira" # aposentados / carreira
+    comandoAposentados = "SELECT * FROM aposentados" # aposentados / carreira
 
-    if condicoes:
-        comando += " WHERE " + " AND ".join(condicoes)
+    comandoCarreira += " WHERE " + " AND ".join(condicoesCarreira)
+    comandoAposentados += " WHERE " + " AND ".join(condicoesAposentados)
 
     if limite:
-        comando += " LIMIT %s"
-        parametros.append(limite)
-
-    print(comando)
-    print(parametros)
+        comandoCarreira += " LIMIT %s"
+        comandoAposentados += " LIMIT %s"
+        parametrosCarreira.append(limite)
+        parametrosAposentados.append(limite)
 
     conn.rollback() # debug
-    cur.execute(comando, parametros)
 
-    print(condicoes)
+    cur.execute(comandoCarreira, parametrosCarreira)
+    nomesColunaCarreira = [desc[0] for desc in cur.description]
+    print(f"NOMES COLUNAS DE CARREIRA: {nomesColunaCarreira}")
 
-    resultado = cur.fetchall()
+    resultadoCarreira = cur.fetchall()
 
-    print(f'resultado: {resultado}')
+    cur.execute(comandoAposentados, parametrosAposentados)
+    nomesColunaAposentados = [desc[0] for desc in cur.description]
+    print(f"NOMES COLUNAS DE APOSENTADOS: {nomesColunaAposentados}")
 
-    nomesColuna = [desc[0] for desc in cur.description]
+    resultadoAposentados = cur.fetchall()
+
+    print(f'----------resultado CARREIRA---------: {resultadoCarreira}')
+    print(f'----------resultado APOSENTADOS--------: {resultadoAposentados}')
 
     jsonOutput = []
-    for result in resultado:
+    for result in resultadoCarreira:
         registro = {}
-        for i in range(0, len(nomesColuna)):
-            registro[nomesColuna[i]] = result[i]
+        for i in range(0, len(nomesColunaCarreira)):
+            registro[nomesColunaCarreira[i]] = result[i]
+
+        jsonOutput.append(registro)
+
+    for result in resultadoAposentados:
+        registro = {}
+        for i in range(0, len(nomesColunaAposentados)):
+            registro[nomesColunaAposentados[i]] = result[i]
 
         jsonOutput.append(registro)
 
