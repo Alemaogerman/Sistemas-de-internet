@@ -101,20 +101,23 @@ def consulta():
     print(f'----------resultado CARREIRA---------: {resultadoCarreira}')
     print(f'----------resultado APOSENTADOS--------: {resultadoAposentados}')
 
-    jsonOutput = []
+    jsonOutput = {}
+    jsonOutput["carreira"] = []
+    jsonOutput["aposentados"] = []
+
     for result in resultadoCarreira:
         registro = {}
         for i in range(0, len(nomesColunaCarreira)):
             registro[nomesColunaCarreira[i]] = result[i]
 
-        jsonOutput.append(registro)
+        jsonOutput["carreira"].append(registro)
 
     for result in resultadoAposentados:
         registro = {}
         for i in range(0, len(nomesColunaAposentados)):
             registro[nomesColunaAposentados[i]] = result[i]
 
-        jsonOutput.append(registro)
+        jsonOutput["aposentados"].append(registro)
 
     cur.close()
 
