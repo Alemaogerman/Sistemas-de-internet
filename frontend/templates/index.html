@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- fonte do título do site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+
+    <!-- ícones do site -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+    <!-- ícone do site -->
+    <link rel="icon" href="{{ url_for('static', filename='imagens/capivaracomputador.ico') }}">
+
+    <title> Consulta Capivara </title>
+</head>
+
+<body>
+  <main class="site">
+
+    <!-- ícone de modo dark -->
+    <div id="modo-dark">
+      <span class="material-symbols-outlined"><strong>dark_mode</strong></span>
+    </div>
+
+    <!-- título do site seguido da logo -->
+    <div class="nome-site">
+      <h1> Consulta Capivara </h1>
+
+      <!-- imagem capivara -->
+      <img src="{{ url_for('static', filename='imagens/capivara2.svg')}}" alt="capivara-pc">
+    </div>
+
+    <!-- barra de pesquisa -->
+    <form id="pesquisar" method="post">
+
+      <div id="barra-pesquisar">
+        <span class="material-symbols-outlined">search</span>
+        <p id="consulta"><input type="text" name="input" placeholder="Digite sua consulta:"/></p>
+      </div>
+    </form>
+
+    <p id="status-consulta" role="status" aria-live="polite"></p> <!-- mostra a quantidade de resultados encontrados, em qual tabela encontrou ou se encontrou resultados nas duas tabelas -->
+
+    <!-- tabela com os resultados das consultas - é no app.js que ele cria as colunas e os campos  -->
+    <div class="tabela-consulta">
+      <table id="tabela-carreira">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+
+
+      <table id="tabela-aposentados">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <div id="paginas-site">
+      <footer><strong>1</strong></footer>
+    </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
