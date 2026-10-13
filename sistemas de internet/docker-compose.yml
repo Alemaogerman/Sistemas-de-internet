@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # BANCO DE DADOS POSTGRESQL
+  db-server:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dados_governo
+    ports:
+      - "5433:5433"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # Envia os arquivos CSV diretamente como arquivos (Evita carregar no cache do build)
+      - ./db/APOSENTADOS_072026_limpo_com_cabecalho.csv:/db/dados/APOSENTADOS_072026_limpo.csv
+      - ./db/CARREIRA_072026_limpo.csv:/db/dados/CARREIRA_072026_limpo.csv
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dados_governo"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # BACKEND FLASK
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      db-server:
+        condition: service_healthy
+
+#  frontend:
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - backend
+
+volumes:
+  db_data:

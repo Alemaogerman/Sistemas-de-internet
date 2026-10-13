@@ -1,0 +1,25 @@
+Roda o preparar dados.py antes n tem como mandar csv gigante no git
+
+Pro backend:
+host = db-server
+port = 5432
+database = dados_governo
+user = postgres
+password = postgres
+
+
+Powershell: 
+1 - " cd db-server "
+
+2 - " docker build -t db-server . "
+
+3 - " docker run -d --name db-server -e POSTGRES_DB=dados_governo -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 db-server "
+
+4 - se quiser testar selects pelo powershell: " docker exec -it db-server psql -U postgres -d dados_governo "
+e dai select count(*) from carreira (esperado 1091029) e select count(*) from aposentados (677 esperado) 
+
+5 - pra testar pelo próprio backend tem biblioteca (q já vai acabar usando dentro das funções mesmo então só baixar)
+
+ACESSO PELO COMPUTADOR:
+host = localhost
+port = 5433
