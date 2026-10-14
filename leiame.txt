@@ -1,0 +1,4 @@
+1 - roda o preparar dados 
+2 - inicia o docker
+3 - roda docker compose up --build
+4 - roda o app.py e abre no navegador
