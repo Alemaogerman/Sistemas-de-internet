@@ -125,28 +125,6 @@ h1{
   border-radius: 4px;
 }
 
-#tabela-produtos{
-  width: 100%;
-  min-width: 1200px;
-  border-collapse: collapse;
-  font-size: 15px;
-  font-family: sans-serif;
-  background-color: var(--cor-barra-modo-claro);
-}
-
-#tabela-produtos th,
-#tabela-produtos td {
-  width: calc(100% / 18);
-  padding: 10px 12px;
-  border: 3px solid var(--cor-textos-modo-claro);
-  color: var(--cor-textos-modo-dark);
-  text-align: left;
-}
-
-#tabela-produtos th {
-  font-weight: bold;
-}
-
 #tabela-carreira{
   width: 100%;
   min-width: 1200px;
@@ -157,7 +135,29 @@ h1{
 }
 
 #tabela-carreira th,
-#tabela-carreira td{
+#tabela-carreira td {
+  width: calc(100% / 18);
+  padding: 10px 12px;
+  border: 3px solid var(--cor-textos-modo-claro);
+  color: var(--cor-textos-modo-dark);
+  text-align: left;
+}
+
+#tabela-carreira th {
+  font-weight: bold;
+}
+
+#tabela-aposentados{
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+  font-size: 15px;
+  font-family: sans-serif;
+  background-color: var(--cor-barra-modo-claro);
+}
+
+#tabela-aposentados th,
+#tabela-aposentados td{
   width: calc(100% / 8);
   padding: 10px 12px;
   border: 3px solid var(--cor-textos-modo-claro);
@@ -165,7 +165,7 @@ h1{
   text-align: left;
 }
 
-#tabela-carreira th{
+#tabela-aposentados th{
   font-weight: bold;
 }
 
@@ -225,19 +225,19 @@ body.dark #paginas-site{
 
 
 /* tabelas - modo dark */
-body.dark #tabela-produtos th{
-  border-color: var(--cor-textos-modo-dark);
-}
-
-body.dark #tabela-produtos td{
-  border-color: var(--cor-textos-modo-dark);
-}
-
 body.dark #tabela-carreira th{
   border-color: var(--cor-textos-modo-dark);
 }
 
 body.dark #tabela-carreira td{
+  border-color: var(--cor-textos-modo-dark);
+}
+
+body.dark #tabela-aposentados th{
+  border-color: var(--cor-textos-modo-dark);
+}
+
+body.dark #tabela-aposentados td{
   border-color: var(--cor-textos-modo-dark);
 }
 
