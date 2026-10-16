@@ -208,8 +208,8 @@ async function realizarConsulta() {
                 tabCarreira.hidden = false;
             }
 
-            const totalRegistros = montarTabela("tabela-carreira", dados.carreira, 8);
-            statusConsulta.textContent = `Foram encontrado(s) ${totalRegistros} registro(s) na tabela Carreira.`;
+            const totalRegistrosCarreira = montarTabela("tabela-carreira", dados.carreira, 8);
+            statusConsulta.textContent = `Foram encontrado(s) ${totalRegistrosCarreira} registro(s) na tabela Carreira.`;
 
     /* caso de ter apenas registros na tabela de aposentados */ 
     } else if (verificaAposentados && !verificaCarreira) {
@@ -220,15 +220,26 @@ async function realizarConsulta() {
         }
 
         /* 18 colunas */
-        const totalRegistros = montarTabela( "tabela-aposentados", dados.aposentados, 18);
+        const totalRegistrosAposentados = montarTabela( "tabela-aposentados", dados.aposentados, 18);
 
-        statusConsulta.textContent = `Foram encontrado(s) ${totalRegistros} registro(s) na tabela Aposentados.`;
+        statusConsulta.textContent = `Foram encontrado(s) ${totalRegistrosAposentados} registro(s) na tabela Aposentados.`;
 
     /* caso de ter registros em ambas as tabelas*/ 
-    } else if (verificaCarreira && verificaAposentados) {
+    } else if (verificaCarreira && verificaAposentados) { /*tá funcionando por enquanto só para busca similar*/
 
-        /* se encontrar resultados em ambas as tabelas mostra essa mensagem na tela */
-        statusConsulta.textContent = "Foram encontrados resultados em ambas as tabelas. Realize uma nova consulta.";
+        /* se encontrar registros em ambas as tabelas mostra as duas - independente de estar duplicado o registro */
+        if (tabCarreira){
+            tabCarreira.hidden = false;
+        }
+
+        const totalRegistrosCarreira = montarTabela("tabela-carreira", dados.carreira, 8);
+
+        if (tabAposentados){
+            tabAposentados.hidden = false;
+        }
+
+        const totalRegistrosAposentados = montarTabela("tabela-aposentados", dados.aposentados, 18);
+        statusConsulta.textContent = `Foram encontrados registros em ambas as tabelas.`;
 
     /* quando não tem registro em nenhuma tabela */ 
     } else {
