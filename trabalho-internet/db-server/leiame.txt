@@ -1,0 +1,21 @@
+Roda o preparar dados.py antes n tem como mandar csv gigante no git
+
+Pro backend:
+host = db-server
+port = 5432
+database = dados_governo
+user = postgres
+password = postgres
+
+
+Powershell: 
+1 - cd db-server
+
+2 - docker build -t db-server .
+
+3 - docker run -d --name db-server -e POSTGRES_DB=dados_governo -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5433:5432 db-server
+
+
+ACESSO PELO COMPUTADOR:
+host = localhost
+port = 5433
