@@ -1,1 +1,19 @@
-blo
+possibilidades
+
+nome exato + UF       - formato: nome exato; ;UF
+nome exato + cargo    - formato: nome exato;cargo
+nome exato + órgão    - formato: nome exato; ; ;órgão
+
+cargo + UF            - formato: ;cargo;UF
+UF + órgão            - formato: ; ;UF;órgão
+cargo + órgão         - formato: ;cargo; ;órgão
+
+nome + cargo + UF     - formato: nome;cargo;UF
+nome + cargo + órgão  - formato: nome;cargo; ;órgão
+nome + UF + órgão     - formato: nome; ;UF;órgão
+
+cargo + UF + órgão    - formato: ;cargo;UF;órgão
+
+nome+ cargo + UF + órgão - formato: nome;cargo;UF;órgão
+
+*se tiver faltando alguma e eu lembrar coloco aqui
