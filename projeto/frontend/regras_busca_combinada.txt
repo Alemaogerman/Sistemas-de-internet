@@ -17,3 +17,4 @@ cargo + UF + órgão    - formato: ;cargo;UF;órgão
 nome+ cargo + UF + órgão - formato: nome;cargo;UF;órgão
 
 *se tiver faltando alguma e eu lembrar coloco aqui
+*palavras com acento não pega na consulta
