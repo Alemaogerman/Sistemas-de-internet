@@ -384,8 +384,9 @@ async function realizarConsulta() {
             url.searchParams.set("orgao", consulta.toUpperCase());
 
         } else if (modoBusca === "buscacombinada") {
-        /* segue a ordem nome similar, nome exato, cargo, uf e órgão - usa ; entre os campos */
-
+        /* segue a ordem nome exato, cargo, uf e órgão - usa ; entre os campos */
+            
+            /* nome similar ficou de fora para não ficar redundante já que tem o nome exato */
             const campos = consulta.split(";");
 
             if (campos.length > 4) {
