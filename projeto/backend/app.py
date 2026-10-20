@@ -10,8 +10,8 @@ import psycopg2
 app = Flask(__name__, template_folder="../frontend/templates", static_folder="../frontend/static")
 
 try:
-    conn = psycopg2.connect(host="localhost",
-                            port="5433",
+    conn = psycopg2.connect(host="db-server",
+                            port="5432",
                             database="dados_governo",
                             user="postgres",
                             password="postgres")
