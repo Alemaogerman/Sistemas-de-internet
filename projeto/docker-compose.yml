@@ -1,11 +1,10 @@
-version: '3.8'
 
 services:
   # BANCO DE DADOS POSTGRESQL
   db-server:
     build:
-      context: ./db-server
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./db-server/Dockerfile
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -18,8 +17,8 @@ services:
       test: ["CMD-SHELL", "pg_isready -U postgres -d dados_governo -h 127.0.0.1"]
       interval: 10s
       timeout: 10s
-      retries: 30       # Aumentamos o número de tentativas
-      start_period: 2m  # MÁGICA: Dá 2 minutos inteiros de "imunidade" enquanto lê os CSVs
+      retries: 30
+      start_period: 2m
 
   # BACKEND FLASK
   backend:
@@ -29,8 +28,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      # Injeta a pasta frontend do seu PC para dentro do Docker.
-      # Como o backend roda em /app/Backend, o "../frontend" do Flask vai apontar exatamente para cá!
+      # Disponibiliza o frontend dentro do container
       - ./frontend:/app/frontend
     depends_on:
       db-server:
@@ -38,3 +36,4 @@ services:
 
 volumes:
   db_data:
+
