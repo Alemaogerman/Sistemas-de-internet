@@ -1,0 +1,6 @@
+
+1 - Rodar o preparar dados.py para gerar os csvs (Os csvs tem que estar dentro da pasta projeto no VS a que contém o compose) 
+
+2 - Rodar o "docker composse up --build" (obs se já tiver dados tem que rodar "docker compose down -v")
+
+3 - Copiar o link que aparece no terminal, na web para acessar
